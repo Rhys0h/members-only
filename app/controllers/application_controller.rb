@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionsHelper
 
   def log_in(user)
   	remember_token = User.new_remember_token
@@ -17,9 +18,7 @@ class ApplicationController < ActionController::Base
     @current_user = user
   end
 
-  def signed_in?
-  	!current_user.not_nil
-  end
+  
 
   def log_out
   	cookies.delete(:remember_digest)

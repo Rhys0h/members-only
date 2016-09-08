@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts
 	before_create :create_remember_digest
 	has_secure_password
 

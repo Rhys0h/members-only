@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+
+<li>
+	<% @posts.each do |post| %>
+		<ul>
+			<% if cookies.permanent[:remember_digest] %>
+				<%= post.user.name %><br>
+			<% end %>
+			<%= post.title %><br>
+			<%= post.body %>
+		</ul>
+	<% end %>
+</li>
